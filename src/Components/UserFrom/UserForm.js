@@ -1,5 +1,5 @@
 import React from 'react'
-import {colors, Grid, Input, Typography} from "@mui/material"
+import {Button, colors, Grid, Input, Typography} from "@mui/material"
 
 export const UserForm = () => {
   return (
@@ -61,20 +61,20 @@ export const UserForm = () => {
                     onChange={e =>{}} />
         </Grid>
 
-        <button sx={{
+        <Button sx={{
             margin:'auto',
             marginBottom:'20px',
-            backgroundColor:'#00c6e6',
-            color:'#00000',   
+            backgroundColor:'#1664ebff',
+            color:'#ffffff',   
             marginLeft:'15px',
             marginTop:'20px',
             '&:hover':{
                 opacity:'0.7',
-                backgroundColor:'#00c6e6'
+                backgroundColor:'#1664ebff'
             }
         }}>
             Add
-        </button>
+        </Button>
         
     </Grid>
   )
