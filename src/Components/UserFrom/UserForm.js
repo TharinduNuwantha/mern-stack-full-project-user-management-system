@@ -1,81 +1,75 @@
-import React from 'react'
-import {Button, colors, Grid, Input, Typography} from "@mui/material"
+import React, { useState } from 'react'
+import { Button, Grid, Input, Typography } from "@mui/material"
+import './UserForm.css';
 
 export const UserForm = () => {
+  const [id, setId] = useState(0);
+  const [name, setName] = useState('');
+
   return (
     <Grid
         container
         spacing={2}
+        className="user-form-container"
         sx={{
-            backgroundColor:'#ffffff',
-            marginBottom:'30px',
-            display:'block'
+            display:'block',
+            maxWidth: '500px',
+            margin: '0 auto'
         }}
     >
         <Grid item xs={12}>
-          <Typography component="h1" sx={{ color: '#000000' }}>
-                 User Form
+          <Typography className="user-form-title" component="h1">
+            User Form
           </Typography>
-
         </Grid>
 
-        <Grid item xs={12} xm={6} sx={{display:'flex'}}>
+        <Grid item xs={12} className="form-grid-item">
             <Typography 
+                className="form-label"
                 component={'label'}
                 htmlFor='id'
-                sx={{
-                    color:'#000000',
-                    marginRight:'20px',
-                    fontSize:'16px',
-                    width:'100px',
-                    display:'block'
-                }}               
-                >ID</Typography>
+            >
+                ID
+            </Typography>
+            <div className="form-input-container">
                 <Input 
+                    className="form-input"
                     type='number'
                     id='id'
                     name='id'
-                    sx={{width:'400px'}}
-                    value={''}
-                    onChange={e =>{}} />
+                    value={id}
+                    onChange={e => setId(e.target.value)}
+                    placeholder="Enter user ID"
+                />
+            </div>
         </Grid>
 
-        <Grid item xs={12} xm={6} sx={{display:'flex'}}>
+        <Grid item xs={12} className="form-grid-item">
             <Typography 
+                className="form-label"
                 component={'label'}
-                htmlFor='id'
-                sx={{
-                    color:'#000000',
-                    marginRight:'20px',
-                    fontSize:'16px',
-                    width:'100px',
-                    display:'block'
-                }}               
-                >Name</Typography>
+                htmlFor='name'
+            >
+                Name
+            </Typography>
+            <div className="form-input-container">
                 <Input 
+                    className="form-input"
                     type='text'
                     id='name'
                     name='name'
-                    sx={{width:'400px'}}
-                    value={''}
-                    onChange={e =>{}} />
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    placeholder="Enter user name"
+                />
+            </div>
         </Grid>
 
-        <Button sx={{
-            margin:'auto',
-            marginBottom:'20px',
-            backgroundColor:'#1664ebff',
-            color:'#ffffff',   
-            marginLeft:'15px',
-            marginTop:'20px',
-            '&:hover':{
-                opacity:'0.7',
-                backgroundColor:'#1664ebff'
-            }
-        }}>
-            Add
-        </Button>
-        
+        <Grid item xs={12} sx={{ textAlign: 'center', marginTop: '2rem' }}>
+            <Button className="submit-button">
+                Add User
+            </Button>
+        </Grid>
     </Grid>
   )
 }
