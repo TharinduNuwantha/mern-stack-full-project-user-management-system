@@ -1,7 +1,7 @@
 import { Button, Paper,Table,TableCell,TableContainer, TableHead, TableRow } from '@mui/material'
 import React from 'react'
 
-export const UserTable = ({rows}) => {
+export const UserTable = ({rows,selectedUser}) => {
   return (
     <TableContainer component={Paper}>
         <Table>
@@ -19,7 +19,7 @@ export const UserTable = ({rows}) => {
                             <TableCell>
                                 <Button 
                                     sx={{margin:'0px 10px'}}
-                                    onClick={()=>{}}
+                                    onClick={()=>{selectedUser({id:row.id,name:row.name})}}
                                 >
                                     Update
                                 </Button>
@@ -27,15 +27,9 @@ export const UserTable = ({rows}) => {
                                     sx={{margin:'0px 10px'}}
                                     onClick={()=>{}}
                                 >
-                                    Update
+                                    Delete
                                 </Button>
 
-                                <Button 
-                                    sx={{margin:'0px 10px'}}
-                                    onClick={()=>{}}
-                                >
-                                    Update
-                                </Button>
                             </TableCell>
                         </TableRow>
                     )) : 

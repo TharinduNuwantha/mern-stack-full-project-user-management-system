@@ -68,11 +68,11 @@ export const Users = () => {
     
   return (
     <Box>
-        <UserForm addUser={addUser} submit={submit}/>
+        <UserForm addUser={addUser} editUser={editUser} submit={submit} data={selectedUser} isedit={isedit}/>
         <UserTable rows={users}
           selectedUser={data=>{
-            editUser(data);
-            isedit(true)
+            setSelecttedUSer(data);
+            setIsEdit(true)
           }}
         />
     </Box>
