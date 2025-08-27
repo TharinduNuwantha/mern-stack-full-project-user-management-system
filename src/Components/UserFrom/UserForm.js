@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Grid, Input, Typography } from "@mui/material"
 import './UserForm.css';
 
-export const UserForm = () => {
+export const UserForm = ({addUser,submit}) => {
   const [id, setId] = useState(0);
   const [name, setName] = useState('');
+
+
+  useEffect(()=>{
+    if(!submit){
+        setId(0);
+        setName('');
+    }
+  },[submit]);
 
   return (
     <Grid
@@ -66,7 +74,7 @@ export const UserForm = () => {
         </Grid>
 
         <Grid item xs={12} sx={{ textAlign: 'center', marginTop: '2rem' }}>
-            <Button className="submit-button">
+            <Button className="submit-button" onClick={()=>addUser({id,name})}>
                 Add User
             </Button>
         </Grid>
