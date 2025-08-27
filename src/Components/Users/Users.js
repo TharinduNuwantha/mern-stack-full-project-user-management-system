@@ -65,6 +65,16 @@ export const Users = () => {
       console.error("axios error :( ",error);
     })
   }
+
+  const deleteUser = (data) => {
+ 
+    axios.delete('http://localhost:3002/api/deleteuser', { data: { id: data.id } })
+
+    .then(()=>{getUsers();})
+    .catch(error =>{
+      console.error("axios error :( ",error);
+    })
+  }
     
   return (
     <Box>
@@ -74,6 +84,7 @@ export const Users = () => {
             setSelecttedUSer(data);
             setIsEdit(true)
           }}
+          deleteUser={data => window.confirm("Are you shure ?") && deleteUser(data)}
         />
     </Box>
   )

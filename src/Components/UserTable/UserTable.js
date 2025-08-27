@@ -1,7 +1,7 @@
 import { Button, Paper,Table,TableCell,TableContainer, TableHead, TableRow } from '@mui/material'
 import React from 'react'
 
-export const UserTable = ({rows,selectedUser}) => {
+export const UserTable = ({rows,selectedUser,deleteUser}) => {
   return (
     <TableContainer component={Paper}>
         <Table>
@@ -25,7 +25,7 @@ export const UserTable = ({rows,selectedUser}) => {
                                 </Button>
                                 <Button 
                                     sx={{margin:'0px 10px'}}
-                                    onClick={()=>{}}
+                                    onClick={()=>{deleteUser({id:row.id})}}
                                 >
                                     Delete
                                 </Button>
